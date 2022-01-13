@@ -11,29 +11,26 @@ import SnapKit
 class ViewController: UIViewController {
 
     lazy var totalTitle = UILabel()
-    lazy var acButton = UIButton()
-    lazy var plusminusButton = UIButton()
-    lazy var percentButton = UIButton()
-    lazy var divideButton = UIButton()
-    lazy var multiplyButton = UIButton()
-    lazy var minusButton = UIButton()
-    lazy var plusButton = UIButton()
-    lazy var resultButton = UIButton()
-    lazy var pointButton = UIButton()
+    lazy var acButton = UIButton(type: .system)
+    lazy var plusminusButton = UIButton(type: .system)
+    lazy var percentButton = UIButton(type: .system)
+    lazy var divideButton = UIButton(type: .system)
+    lazy var multiplyButton = UIButton(type: .system)
+    lazy var minusButton = UIButton(type: .system)
+    lazy var plusButton = UIButton(type: .system)
+    lazy var resultButton = UIButton(type: .system)
+    lazy var pointButton = UIButton(type: .system)
     
-    lazy var zeroButton = UIButton()
-    lazy var oneButton = UIButton()
-    lazy var twoButton = UIButton()
-    lazy var threeButton = UIButton()
-    lazy var fourButton = UIButton()
-    lazy var fiveButton = UIButton()
-    lazy var sixButton = UIButton()
-    lazy var sevenButton = UIButton()
-    lazy var eightButton = UIButton()
-    lazy var nineButton = UIButton()
-    
-    lazy var numberOne: Double? = nil
-    lazy var operation: String? = nil
+    lazy var zeroButton = UIButton(type: .system)
+    lazy var oneButton = UIButton(type: .system)
+    lazy var twoButton = UIButton(type: .system)
+    lazy var threeButton = UIButton(type: .system)
+    lazy var fourButton = UIButton(type: .system)
+    lazy var fiveButton = UIButton(type: .system)
+    lazy var sixButton = UIButton(type: .system)
+    lazy var sevenButton = UIButton(type: .system)
+    lazy var eightButton = UIButton(type: .system)
+    lazy var nineButton = UIButton(type: .system)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +51,9 @@ class ViewController: UIViewController {
         view.addSubview(acButton)
         acButton.setTitle("C", for: .normal)
         acButton.backgroundColor = .lightGray
+        acButton.setTitleColor(.black, for: .normal)
         acButton.layer.cornerRadius = view.frame.width / 9
+        acButton.titleLabel!.font = UIFont.systemFont(ofSize: 30)
         acButton.addTarget(nil, action: #selector(operationClick(sender:)), for: .touchUpInside)
         acButton.snp.makeConstraints{make in
             make.top.equalTo(totalTitle.snp.bottom).offset(20)
@@ -66,7 +65,9 @@ class ViewController: UIViewController {
         view.addSubview(plusminusButton)
         plusminusButton.setTitle("+/-", for: .normal)
         plusminusButton.backgroundColor = .lightGray
+        plusminusButton.setTitleColor(.black, for: .normal)
         plusminusButton.layer.cornerRadius = view.frame.width / 9
+        plusminusButton.titleLabel!.font = UIFont.systemFont(ofSize: 30)
         plusminusButton.addTarget(nil, action: #selector(operationClick(sender:)), for: .touchUpInside)
         plusminusButton.snp.makeConstraints{make in
             make.top.equalTo(totalTitle.snp.bottom).offset(20)
@@ -79,6 +80,8 @@ class ViewController: UIViewController {
         percentButton.setTitle("%", for: .normal)
         percentButton.backgroundColor = .lightGray
         percentButton.layer.cornerRadius = view.frame.width / 9
+        percentButton.setTitleColor(.black, for: .normal)
+        percentButton.titleLabel!.font = UIFont.systemFont(ofSize: 30)
         percentButton.addTarget(nil, action: #selector(operationClick(sender:)), for: .touchUpInside)
         percentButton.snp.makeConstraints{make in
             make.top.equalTo(totalTitle.snp.bottom).offset(20)
@@ -91,6 +94,8 @@ class ViewController: UIViewController {
         divideButton.setTitle("/", for: .normal)
         divideButton.backgroundColor = .orange
         divideButton.layer.cornerRadius = view.frame.width / 9
+        divideButton.setTitleColor(.white, for: .normal)
+        divideButton.titleLabel!.font = UIFont.systemFont(ofSize: 30)
         divideButton.addTarget(nil, action: #selector(operationClick(sender:)), for: .touchUpInside)
         divideButton.snp.makeConstraints{make in
             make.top.equalTo(totalTitle.snp.bottom).offset(20)
@@ -103,6 +108,8 @@ class ViewController: UIViewController {
         sevenButton.setTitle("7", for: .normal)
         sevenButton.backgroundColor = .darkGray
         sevenButton.layer.cornerRadius = view.frame.width / 9
+        sevenButton.setTitleColor(.white, for: .normal)
+        sevenButton.titleLabel!.font = UIFont.systemFont(ofSize: 30)
         sevenButton.addTarget(nil, action: #selector(operandButtonClicked(sender:)), for: .touchUpInside)
         sevenButton.snp.makeConstraints{make in
             make.top.equalTo(acButton.snp.bottom).offset(8)
@@ -115,6 +122,8 @@ class ViewController: UIViewController {
         eightButton.setTitle("8", for: .normal)
         eightButton.backgroundColor = .darkGray
         eightButton.layer.cornerRadius = view.frame.width / 9
+        eightButton.setTitleColor(.white, for: .normal)
+        eightButton.titleLabel!.font = UIFont.systemFont(ofSize: 30)
         eightButton.addTarget(nil, action: #selector(operandButtonClicked(sender:)), for: .touchUpInside)
         eightButton.snp.makeConstraints{make in
             make.top.equalTo(acButton.snp.bottom).offset(8)
@@ -127,6 +136,8 @@ class ViewController: UIViewController {
         nineButton.setTitle("9", for: .normal)
         nineButton.backgroundColor = .darkGray
         nineButton.layer.cornerRadius = view.frame.width / 9
+        nineButton.setTitleColor(.white, for: .normal)
+        nineButton.titleLabel!.font = UIFont.systemFont(ofSize: 30)
         nineButton.addTarget(nil, action: #selector(operandButtonClicked(sender:)), for: .touchUpInside)
         nineButton.snp.makeConstraints{make in
             make.top.equalTo(acButton.snp.bottom).offset(8)
@@ -139,6 +150,8 @@ class ViewController: UIViewController {
         multiplyButton.setTitle("X", for: .normal)
         multiplyButton.backgroundColor = .orange
         multiplyButton.layer.cornerRadius = view.frame.width / 9
+        multiplyButton.setTitleColor(.white, for: .normal)
+        multiplyButton.titleLabel!.font = UIFont.systemFont(ofSize: 30)
         multiplyButton.addTarget(nil, action: #selector(operationClick(sender:)), for: .touchUpInside)
         multiplyButton.snp.makeConstraints{make in
             make.top.equalTo(acButton.snp.bottom).offset(8)
@@ -151,6 +164,8 @@ class ViewController: UIViewController {
         fourButton.setTitle("4", for: .normal)
         fourButton.backgroundColor = .darkGray
         fourButton.layer.cornerRadius = view.frame.width / 9
+        fourButton.setTitleColor(.white, for: .normal)
+        fourButton.titleLabel!.font = UIFont.systemFont(ofSize: 30)
         fourButton.addTarget(nil, action: #selector(operandButtonClicked(sender:)), for: .touchUpInside)
         fourButton.snp.makeConstraints{make in
             make.top.equalTo(sevenButton.snp.bottom).offset(8)
@@ -163,6 +178,8 @@ class ViewController: UIViewController {
         fiveButton.setTitle("5", for: .normal)
         fiveButton.backgroundColor = .darkGray
         fiveButton.layer.cornerRadius = view.frame.width / 9
+        fiveButton.setTitleColor(.white, for: .normal)
+        fiveButton.titleLabel!.font = UIFont.systemFont(ofSize: 30)
         fiveButton.addTarget(nil, action: #selector(operandButtonClicked(sender:)), for: .touchUpInside)
         fiveButton.snp.makeConstraints{make in
             make.top.equalTo(sevenButton.snp.bottom).offset(8)
@@ -175,6 +192,8 @@ class ViewController: UIViewController {
         sixButton.setTitle("6", for: .normal)
         sixButton.backgroundColor = .darkGray
         sixButton.layer.cornerRadius = view.frame.width / 9
+        sixButton.setTitleColor(.white, for: .normal)
+        sixButton.titleLabel!.font = UIFont.systemFont(ofSize: 30)
         sixButton.addTarget(nil, action: #selector(operandButtonClicked(sender:)), for: .touchUpInside)
         sixButton.snp.makeConstraints{make in
             make.top.equalTo(sevenButton.snp.bottom).offset(8)
@@ -187,6 +206,8 @@ class ViewController: UIViewController {
         minusButton.setTitle("-", for: .normal)
         minusButton.backgroundColor = .orange
         minusButton.layer.cornerRadius = view.frame.width / 9
+        minusButton.setTitleColor(.white, for: .normal)
+        minusButton.titleLabel!.font = UIFont.systemFont(ofSize: 30)
         minusButton.addTarget(nil, action: #selector(operationClick(sender:)), for: .touchUpInside)
         minusButton.snp.makeConstraints{make in
             make.top.equalTo(sevenButton.snp.bottom).offset(8)
@@ -199,6 +220,8 @@ class ViewController: UIViewController {
         oneButton.setTitle("1", for: .normal)
         oneButton.backgroundColor = .darkGray
         oneButton.layer.cornerRadius = view.frame.width / 9
+        oneButton.setTitleColor(.white, for: .normal)
+        oneButton.titleLabel!.font = UIFont.systemFont(ofSize: 30)
         oneButton.addTarget(nil, action: #selector(operandButtonClicked(sender:)), for: .touchUpInside)
         oneButton.snp.makeConstraints{make in
             make.top.equalTo(fourButton.snp.bottom).offset(8)
@@ -211,6 +234,8 @@ class ViewController: UIViewController {
         twoButton.setTitle("2", for: .normal)
         twoButton.backgroundColor = .darkGray
         twoButton.layer.cornerRadius = view.frame.width / 9
+        twoButton.setTitleColor(.white, for: .normal)
+        twoButton.titleLabel!.font = UIFont.systemFont(ofSize: 30)
         twoButton.addTarget(nil, action: #selector(operandButtonClicked(sender:)), for: .touchUpInside)
         twoButton.snp.makeConstraints{make in
             make.top.equalTo(fourButton.snp.bottom).offset(8)
@@ -223,6 +248,8 @@ class ViewController: UIViewController {
         threeButton.setTitle("3", for: .normal)
         threeButton.backgroundColor = .darkGray
         threeButton.layer.cornerRadius = view.frame.width / 9
+        threeButton.setTitleColor(.white, for: .normal)
+        threeButton.titleLabel!.font = UIFont.systemFont(ofSize: 30)
         threeButton.addTarget(nil, action: #selector(operandButtonClicked(sender:)), for: .touchUpInside)
         threeButton.snp.makeConstraints{make in
             make.top.equalTo(fourButton.snp.bottom).offset(8)
@@ -235,6 +262,8 @@ class ViewController: UIViewController {
         plusButton.setTitle("+", for: .normal)
         plusButton.backgroundColor = .orange
         plusButton.layer.cornerRadius = view.frame.width / 9
+        plusButton.setTitleColor(.white, for: .normal)
+        plusButton.titleLabel!.font = UIFont.systemFont(ofSize: 30)
         plusButton.addTarget(nil, action: #selector(operationClick(sender:)), for: .touchUpInside)
         plusButton.snp.makeConstraints{make in
             make.top.equalTo(fourButton.snp.bottom).offset(8)
@@ -247,6 +276,8 @@ class ViewController: UIViewController {
         zeroButton.setTitle("0", for: .normal)
         zeroButton.backgroundColor = .darkGray
         zeroButton.layer.cornerRadius = view.frame.width / 9
+        zeroButton.setTitleColor(.white, for: .normal)
+        zeroButton.titleLabel!.font = UIFont.systemFont(ofSize: 30)
         zeroButton.addTarget(nil, action: #selector(operandButtonClicked(sender:)), for: .touchUpInside)
         zeroButton.snp.makeConstraints{make in
             make.top.equalTo(oneButton.snp.bottom).offset(8)
@@ -259,6 +290,8 @@ class ViewController: UIViewController {
         pointButton.setTitle(",", for: .normal)
         pointButton.backgroundColor = .darkGray
         pointButton.layer.cornerRadius = view.frame.width / 9
+        pointButton.setTitleColor(.white, for: .normal)
+        pointButton.titleLabel!.font = UIFont.systemFont(ofSize: 30)
         pointButton.addTarget(nil, action: #selector(operandButtonClicked(sender:)), for: .touchUpInside)
         pointButton.snp.makeConstraints{make in
             make.top.equalTo(oneButton.snp.bottom).offset(8)
@@ -271,6 +304,8 @@ class ViewController: UIViewController {
         resultButton.setTitle("=", for: .normal)
         resultButton.backgroundColor = .orange
         resultButton.layer.cornerRadius = view.frame.width / 9
+        resultButton.setTitleColor(.white, for: .normal)
+        resultButton.titleLabel!.font = UIFont.systemFont(ofSize: 30)
         resultButton.addTarget(nil, action: #selector(resultClick(sender:)), for: .touchUpInside)
         resultButton.snp.makeConstraints{make in
             make.top.equalTo(oneButton.snp.bottom).offset(8)
@@ -281,56 +316,40 @@ class ViewController: UIViewController {
         
     }
 
+    var arrayValue = ""
+    var operationClicked = false
+    var lastItem = ""
+    
     @objc func operandButtonClicked(sender: UIButton) {
-        if self.totalTitle.text == "0" {
-            self.totalTitle.text = ""
-            self.totalTitle.text = self.totalTitle.text! + "\(String(describing: sender.titleLabel!.text!))"
-            self.numberOne = Double(self.totalTitle.text!)
-        }else{
-        self.totalTitle.text = self.totalTitle.text! + "\(String(describing: sender.titleLabel!.text!))"
-            self.numberOne = Double(self.totalTitle.text!)
-    }
+            if operationClicked == false && lastItem == ""{
+                arrayValue += (sender.titleLabel?.text)!
+                totalTitle.text = arrayValue
+                lastItem += (sender.titleLabel?.text)!
+            }else{
+                operationClicked = false
+                arrayValue += (sender.titleLabel?.text)!
+                lastItem += (sender.titleLabel?.text)!
+                totalTitle.text = lastItem
+            }
     }
     
     @objc func operationClick(sender: UIButton){
-        if self.numberOne == nil {
-            self.numberOne = Double(self.totalTitle.text ?? "0")
-            self.totalTitle.text = "0"
-            self.operation = sender.titleLabel!.text
-        }
+        operationClicked = true
+        arrayValue += (sender.titleLabel?.text)!
+        totalTitle.text = "0"
+        lastItem = ""
     }
     
     @objc func resultClick(sender: UIButton) {
-
-        if self.operation == "+" {
-            self.totalTitle.text = String((self.numberOne ?? 0) + Double(self.totalTitle.text ?? "0")!)
-            
-            self.numberOne = nil
-        }
-        else if self.operation == "-" {
-            self.totalTitle.text = String((self.numberOne ?? 0) - Double(self.totalTitle.text ?? "0")!)
-            
-            self.numberOne = nil
-        }
-        else if self.operation == "C" {
-            self.totalTitle.text = "0"
-            
-            self.numberOne = nil
-        }
-        else if self.operation == "X" {
-            self.totalTitle.text = String((self.numberOne ?? 0) * (Double(self.totalTitle.text ?? "0")!))
-            
-            self.numberOne = nil
-        }
-        else if self.operation == "/" {
-            self.totalTitle.text = String((self.numberOne ?? 0) / Double(self.totalTitle.text ?? "0")!)
-            
-            self.numberOne = nil
-        }
-        else if self.operation == "%" {
-            self.totalTitle.text = String((self.numberOne ?? 0) * (Double(self.totalTitle.text ?? "0")!/100))
-            
-            self.numberOne = nil
+        var equation: NSString = "\(arrayValue)" as NSString
+        
+        var result = NSExpression(format: equation as String, argumentArray: [arrayValue])
+        
+        let expr = NSExpression(format: equation as String)
+        if let result = expr.expressionValue(with: nil, context: nil) as? Double {
+            totalTitle.text = String(result)
+        } else {
+            print("failed")
         }
     }
 }
