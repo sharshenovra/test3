@@ -147,7 +147,7 @@ class ViewController: UIViewController {
         }
         
         view.addSubview(multiplyButton)
-        multiplyButton.setTitle("X", for: .normal)
+        multiplyButton.setTitle("*", for: .normal)
         multiplyButton.backgroundColor = .orange
         multiplyButton.layer.cornerRadius = view.frame.width / 9
         multiplyButton.setTitleColor(.white, for: .normal)
