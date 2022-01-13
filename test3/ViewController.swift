@@ -287,7 +287,7 @@ class ViewController: UIViewController {
         }
         
         view.addSubview(pointButton)
-        pointButton.setTitle(",", for: .normal)
+        pointButton.setTitle(".", for: .normal)
         pointButton.backgroundColor = .darkGray
         pointButton.layer.cornerRadius = view.frame.width / 9
         pointButton.setTitleColor(.white, for: .normal)
@@ -321,6 +321,27 @@ class ViewController: UIViewController {
     var lastItem = ""
     
     @objc func operandButtonClicked(sender: UIButton) {
+        if sender.titleLabel?.text == "."{
+            if lastItem.contains(".") == false{
+                if operationClicked == false && lastItem == ""{
+                    arrayValue += (sender.titleLabel?.text)!
+                    totalTitle.text = arrayValue
+                    lastItem += (sender.titleLabel?.text)!
+                }else{
+                    operationClicked = false
+                    arrayValue += (sender.titleLabel?.text)!
+                    lastItem += (sender.titleLabel?.text)!
+                    totalTitle.text = lastItem
+                }
+            }else{
+                if operationClicked == false && lastItem == ""{
+                    arrayValue += (sender.titleLabel?.text)!
+                    totalTitle.text = arrayValue
+                    lastItem += (sender.titleLabel?.text)!
+                }else{
+                }
+            }
+        }else{
             if operationClicked == false && lastItem == ""{
                 arrayValue += (sender.titleLabel?.text)!
                 totalTitle.text = arrayValue
@@ -331,6 +352,7 @@ class ViewController: UIViewController {
                 lastItem += (sender.titleLabel?.text)!
                 totalTitle.text = lastItem
             }
+        }
     }
     
     @objc func operationClick(sender: UIButton){
