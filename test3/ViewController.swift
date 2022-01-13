@@ -334,12 +334,6 @@ class ViewController: UIViewController {
                     totalTitle.text = lastItem
                 }
             }else{
-                if operationClicked == false && lastItem == ""{
-                    arrayValue += (sender.titleLabel?.text)!
-                    totalTitle.text = arrayValue
-                    lastItem += (sender.titleLabel?.text)!
-                }else{
-                }
             }
         }else{
             if operationClicked == false && lastItem == ""{
@@ -356,23 +350,47 @@ class ViewController: UIViewController {
     }
     
     @objc func operationClick(sender: UIButton){
-        operationClicked = true
-        arrayValue += (sender.titleLabel?.text)!
-        totalTitle.text = "0"
-        lastItem = ""
+        if sender.titleLabel?.text == "C"{
+            totalTitle.text = ""
+            lastItem = ""
+            arrayValue = ""
+        }else if sender.titleLabel?.text == "+/-"{
+            if lastItem != ""{
+                if Double(lastItem)! > 0{
+                    lastItem = String((Double(lastItem)! * (-1.0)))
+                    totalTitle.text = lastItem
+                }else if Double(lastItem)! < 0{
+                    lastItem = String((Double(lastItem)! * (-1.0)))
+                    totalTitle.text = lastItem
+                }
+            }else if arrayValue != "" && operationClicked == false{
+                if Double(arrayValue)! > 0{
+                    arrayValue = String((Double(arrayValue)! * (-1.0)))
+                    totalTitle.text = arrayValue
+                }else if Double(arrayValue)! < 0{
+                    arrayValue = String((Double(arrayValue)! * (-1.0)))
+                    totalTitle.text = arrayValue
+                }
+            }
+        }else{
+            operationClicked = true
+            arrayValue += (sender.titleLabel?.text)!
+            totalTitle.text = "0"
+            lastItem = ""
+        }
     }
     
     @objc func resultClick(sender: UIButton) {
         var equation: NSString = "\(arrayValue)" as NSString
-        
-        var result = NSExpression(format: equation as String, argumentArray: [arrayValue])
-        
-        let expr = NSExpression(format: equation as String)
-        if let result = expr.expressionValue(with: nil, context: nil) as? Double {
-            totalTitle.text = String(result)
-        } else {
-            print("failed")
+            
+            var result = NSExpression(format: equation as String, argumentArray: [arrayValue])
+            
+            let expr = NSExpression(format: equation as String)
+            if let result = expr.expressionValue(with: nil, context: nil) as? Double {
+                totalTitle.text = String(result)
+            } else {
+                print("failed")
+            }
         }
-    }
 }
 
