@@ -404,7 +404,7 @@ class ViewController: UIViewController {
         lastItem = ""
         arrayValue = ""
         operationClicked = false
-        
+        percentTapped = false
             
     }
 }
