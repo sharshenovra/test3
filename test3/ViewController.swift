@@ -372,25 +372,33 @@ class ViewController: UIViewController {
                     totalTitle.text = arrayValue
                 }
             }
-        }else{
+        }else if operationClicked == false{
             operationClicked = true
             arrayValue += (sender.titleLabel?.text)!
             totalTitle.text = "0"
             lastItem = ""
+        }else{
+            
         }
     }
     
     @objc func resultClick(sender: UIButton) {
-        var equation: NSString = "\(arrayValue)" as NSString
-            
-            var result = NSExpression(format: equation as String, argumentArray: [arrayValue])
-            
-            let expr = NSExpression(format: equation as String)
-            if let result = expr.expressionValue(with: nil, context: nil) as? Double {
-                totalTitle.text = String(result)
-            } else {
-                print("failed")
-            }
+        let expression = NSExpression(format: arrayValue)
+        let result = expression.expressionValue(with: nil, context: nil) as! Double
+        let stringResult = String(result)
+        let separatedArray = stringResult.components(separatedBy: ".")
+        
+        if separatedArray[1] == "0"{
+            totalTitle.text = separatedArray[0]
+        }else{
+            totalTitle.text = String(result)
         }
-}
+        
+        lastItem = ""
+        arrayValue = ""
+        operationClicked = false
+        
+            
+        }
+        }
 
