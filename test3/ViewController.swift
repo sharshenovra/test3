@@ -319,6 +319,7 @@ class ViewController: UIViewController {
     var arrayValue = ""
     var operationClicked = false
     var lastItem = ""
+    var percentTapped = false
     
     @objc func operandButtonClicked(sender: UIButton) {
         if sender.titleLabel?.text == "."{
@@ -359,6 +360,12 @@ class ViewController: UIViewController {
                 lastItem = "\(-Double(lastItem)!)"
                 totalTitle.text = lastItem
             }
+        }else if sender.titleLabel?.text == "%"{
+            percentTapped = true
+            arrayValue += (sender.titleLabel?.text)!
+            totalTitle.text = "0"
+            lastItem = ""
+            operationClicked = true
         }else if operationClicked == false{
             operationClicked = true
             arrayValue += (sender.titleLabel?.text)!
@@ -370,15 +377,28 @@ class ViewController: UIViewController {
     }
     
     @objc func resultClick(sender: UIButton) {
-        let expression = NSExpression(format: arrayValue)
-        let result = expression.expressionValue(with: nil, context: nil) as! Double
-        let stringResult = String(result)
-        let separatedArray = stringResult.components(separatedBy: ".")
         
-        if separatedArray[1] == "0"{
-            totalTitle.text = separatedArray[0]
+        if percentTapped == true{
+            let percentSeparatedArray = arrayValue.components(separatedBy: "%")
+            let resultPercent = Double(percentSeparatedArray[0])! * 0.01 * Double(percentSeparatedArray[1])!
+            let separatedArray = String(resultPercent).components(separatedBy: ".")
+            
+            if separatedArray[1] == "0"{
+                totalTitle.text = separatedArray[0]
+            }else{
+                totalTitle.text = String(resultPercent)
+            }
         }else{
-            totalTitle.text = String(result)
+            let expression = NSExpression(format: arrayValue)
+            let result = expression.expressionValue(with: nil, context: nil) as! Double
+            let stringResult = String(result)
+            let separatedArray = stringResult.components(separatedBy: ".")
+            
+            if separatedArray[1] == "0"{
+                totalTitle.text = separatedArray[0]
+            }else{
+                totalTitle.text = String(result)
+            }
         }
         
         lastItem = ""
@@ -386,6 +406,6 @@ class ViewController: UIViewController {
         operationClicked = false
         
             
-        }
-        }
+    }
+}
 
