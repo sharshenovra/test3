@@ -355,22 +355,9 @@ class ViewController: UIViewController {
             lastItem = ""
             arrayValue = ""
         }else if sender.titleLabel?.text == "+/-"{
-            if lastItem != ""{
-                if Double(lastItem)! > 0{
-                    lastItem = String((Double(lastItem)! * (-1.0)))
-                    totalTitle.text = lastItem
-                }else if Double(lastItem)! < 0{
-                    lastItem = String((Double(lastItem)! * (-1.0)))
-                    totalTitle.text = lastItem
-                }
-            }else if arrayValue != "" && operationClicked == false{
-                if Double(arrayValue)! > 0{
-                    arrayValue = String((Double(arrayValue)! * (-1.0)))
-                    totalTitle.text = arrayValue
-                }else if Double(arrayValue)! < 0{
-                    arrayValue = String((Double(arrayValue)! * (-1.0)))
-                    totalTitle.text = arrayValue
-                }
+            if lastItem != "" && lastItem != "0"{
+                lastItem = "\(-Double(lastItem)!)"
+                totalTitle.text = lastItem
             }
         }else if operationClicked == false{
             operationClicked = true
